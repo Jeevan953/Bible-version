@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flaring Holy Cross with Music</title>
+  <style>
+  
+  .container {
+    overflow-y: auto; /* Enable scrolling within the container */
+    max-height: 200vh; /* Limit the container's height to the viewport */
+}
+      /* General Styles */
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 200vh;
+      background: radial-gradient(circle, #1a2a6c, #b21f1f, #fdbb2d);
+      overflow-y: auto;
+      font-family: 'Tangerine', serif;
+      color: white;
+    }
+
+    /* Header Styles */
+    .header {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px;
+      box-sizing: border-box;
+      font-size: 42px;
+      font-weight: bold;
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5) #aaa;
+    }
+
+    .header .left {
+      text-align: left;
+    }
+
+    .header .right {
+      text-align: right;
+      color: blue;
+    }
+
+    /* Holy Cross Animation */
+    .cross-container {
+      position: relative;
+      width: 150px;
+      height: 250px;
+      animation: bounce 3s infinite;
+    }
+
+    .cross {
+      position: absolute;
+      width: 50px;
+      height: 200px;
+      background: radial-gradient(circle, #ffffff, #ffdd00, transparent);
+      box-shadow: 0 0 50px 20px rgba(255, 255, 255, 0.7);
+      animation: flare 2s infinite alternate;
+    }
+
+    .cross::before {
+      content: '';
+      position: absolute;
+      width: 150px;
+      height: 50px;
+      top: 75px;
+      left: -50px;
+      background: radial-gradient(circle, #ffffff, #ffdd00, transparent);
+      box-shadow: 0 0 50px 20px rgba(255, 255, 255, 0.7);
+    }
+
+    .cross::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      bottom: -50px;
+      left: 0;
+      background: radial-gradient(circle, #ffffff, #ffdd00, transparent);
+      box-shadow: 0 0 50px 20px rgba(255, 255, 255, 0.7);
+    }
+
+    /* Button Styles */
+    .buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    button {
+      width: 180px;
+      padding: 15px 0;
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+
+    /* Individual Button Colors */
+    button:nth-child(1) { background-color: #3498db; }
+    button:nth-child(2) { background-color: #e74c3c; }
+    button:nth-child(3) { background-color: #27ae60; }
+    button:nth-child(4) { background-color: #f39c12; color: black; }
+
+    .pdf-bible-button { background-color: #8e44ad; }
+    .html-bible-button { background-color: #16a085; }
+    .link1-button { background-color: #c0392b; }
+    .link2-button { background-color: #2980b9; }
+    .audio-bible-button { background-color: #34495e; }
+    .epub-bible-button { background-color: #8e44ad; }
+    .videos-button { background-color: #e67e22; }
+    .link3-button { background-color: #2c3e50; }
+    .black-button { background-color: black; color: white; }
+
+    /* New Button Colors */
+    .lexicon-button { background-color: #8e44ad; }
+    .names-button { background-color: #16a085; }
+    .confetti-button { background-color: #f39c12; }
+    .verse-day-button { background-color: #3498db; }
+    .trivia-button { background-color: #e74c3c; }
+    .prayer-button { background-color: #2c3e50; }
+
+    .dictionary-button { background-color: #1abc9c; }
+    .maps-button { background-color: #2ecc71; }
+    .devotion-button { background-color: #3498db; }
+    .concordance-button { background-color: #9b59b6; }
+    .quiz-button { background-color: #e74c3c; }
+    .hymns-button { background-color: #e67e22; }
+    .articles-button { background-color: #34495e; }
+    
+    .scripture-art-button { background-color: black; color: red; }
+    .timeline-button { background-color: black; color: red; }
+    .commentary-button { background-color: #34495e; }
+    .study-guide-button { background-color: #2980b9; }
+    .quotes-button { background-color: #8e44ad; }
+    .events-button { background-color: #27ae60; }
+    .history-button { background-color: #e67e22; }
+     .sermons-button { background-color: #27ae60; }
+    .bible-promises-1000-button { background-color: #e67e22; }
+    
+    /* Hover Effect */
+    button:hover {
+    background: #e4dded;
+            color: black;
+      filter: brightness(1.1);
+    }
+
+    /* Keyframe Animations */
+    @keyframes flare {
+      0% { box-shadow: 0 0 50px 10px rgba(255, 255, 255, 0.5); transform: scale(1); }
+      100% { box-shadow: 0 0 80px 40px rgba(255, 255, 255, 0.9); transform: scale(1.2); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+      
+    /* Animation Styles */
+@keyframes slideFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animated-text {
+  animation: slideFade 3s ease-in-out infinite alternate;
+}
+
+.left {
+  animation-delay: 0.5s;
+}
+
+.right {
+  animation-delay: 1.5s;
+}
+
+button.active {
+  background-color: #e74c3c; /* Red color */
+  color: white;
+}
+
+.image-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.fade-in-image {
+    width: 50%;
+    opacity: 0;
+    animation: fadeIn 3s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.top-right-image {
+    position: fixed;
+    top: 10px;   /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    z-index: 1000; /* Stays on top of other elements */
+}
+
+.top-right-image img {
+    width: 150px;   /* Adjust the size */
+    border-radius: 10px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: shadow effect */
+}
+
+.top-right-image {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 100px;
+  height: auto;
+  animation: pulsate 2s infinite;
+}
+
+@keyframes pulsate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.moving-text {
+    position: absolute;
+    font-size: 50px;  /* Slightly larger for a fancy look */
+    color: #ffdf00;
+    font-family: 'Great Vibes', cursive;  /* Use the fancy Google Font */
+    animation: randomMove 12s infinite;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    text-shadow: .double-line {
+    font-size: 2em;          /* Adjust font size */
+    color: #ffffff;          /* Main text color */
+    font-family: 'Georgia', serif; /* Elegant font for a Bible verse */
+    text-align: center;      /* Center align the text */
+    line-height: 1.4;        /* Adjust line height for better spacing */
+    position: relative;
+    text-shadow: 
+        2px 2px 0 #000000,   /* Shadow to the bottom-right */
+        -2px -2px 0 #000000; /* Shadow to the top-left */
+}
+    background: linear-gradient(45deg, #ffdf00, #ffa500, #ff4500, #8b00ff); /* Gold gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes randomMove {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(10vw, 5vh); /* Move right and down */
+    }
+    50% {
+        transform: translate(-5vw, -3vh); /* Move left and up */
+    }
+    75% {
+        transform: translate(10vw, -5vh); /* Move right and up */
+    }
+    100% {
+        transform: translate(0, 0); /* Back to origin */
+    }
+}
+
+body {
+    overflow: hidden;       /* Hide the scrollbar */
+}
+
+
+ .btn {
+            position: relative;
+            width: 180px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(229, 9, 20, 0.2);
+            border-radius: 10px;
+            cursor: pointer;
+            overflow: hidden;
+            font-size: 1em;
+            transition: 0.5s;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #e8209e5;
+            border: 2px solid #e50914;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #e4dded;
+            color: black;
+        }
+
+
+.sparkle-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    padding: 8px 9px;
+    font-size: 18px;
+    color: violet;
+    background-color: #ff9800;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.stars {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0) 80%);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.sparkle-btn:hover .stars {
+    display: block;
+    filter: drop-shadow(0 0 10px #fffdef);
+    opacity: 1;
+}
+
+  </style>
+</head>
+<body>
+  
+  <div class="header">
+  <div class="left animated-text">Know Your Bible</div>
+  <div class="right animated-text">Know Your Version</div>
+  <h1 class="moving-text">The LORD is good to all-Ps 145:9</h1>
+  <div class="image-container">
+        <div class="top-right-image">
+        <img src="/jeevan/Documents/Pix.jpg" alt="Jesus Saves">
+        
+     </div>   
+    </div>
+  <body>
+    <div class="scroll-container">
+        <h1 class="double-line">"The Lord is my shepherd; I shall not want."</h1>
+        
+    </div>
+</body>
+</div>
+  <div class="cross-container">
+    <div class="cross"></div>
+  </div>
+
+  <div class="buttons">
+    <button id="musicButton"
+    onclick="toggleMusic()" aria-label="Play or Stop Hindi Music">Play Hindi 🎼</button>
+    
+    <button id="tamilButton" 
+    onclick="toggleTamilMusic()" aria-label="Play or Stop Tamil Music">Play Tamil 🎶</button>
+    
+    <button id="englishButton" 
+    onclick="toggleEnglishMusic()" aria-label="Play or Stop English Music">Play English 🎵</button>
+    
+
+  
+    <audio src="Yeasu_Rajanae.mp3" id="audio1"></audio>
+    <button class="play-stop">Play Tamil 🎶</button>
+
+    <audio src="Jesus Messiah.mp3" id="audio2"></audio>
+    <button class="play-stop">Play English 🎶</button>
+
+    <button class="bible-prophecy-button" onclick="openBibleProphecy()">Bible Prophecy</button>
+    
+    
+     
+    <button onclick="yawehBible()">Yaweh Bible</button>
+    <button onclick="openTamilBible()">Read Tamil Bible</button>
+    <button onclick="openEnglishBible()">Read English Bible</button>
+    <button class="pdf-bible-button" onclick="openPdfBible()">PDF Bible</button>
+    <button class="html-bible-button" onclick="openHtmlBible()">HTML Bible</button>
+    <button class="link1-button" onclick="openLink1()">Image Editor & Music</button>
+    <button class="link2-button" onclick="openLink2()">Link 2</button>
+    <button class="audio-bible-button" onclick="openAudioBible()">Audio Bible</button>
+    <button class="epub-bible-button" onclick="openEpubBible()">.epub Bible</button>
+    <button class="videos-button" onclick="openVideos()">Videos</button>
+    <button class="link3-button" onclick="openLink3()">Link 3</button>
+    <button class="black-button" onclick="blackButtonAction()">Black Button</button>
+    <!-- New Buttons -->
+    <button class="lexicon-button" onclick="openBibleLexicon()">Bible Lexicon</button>
+    <button class="names-button" onclick="openBiblicalNames()">Biblical Names</button>
+    <button class="confetti-button" onclick="triggerConfetti()">Confetti Celebrate 🎉</button>
+    <button class="verse-day-button" onclick="showVerseOfTheDay()">Verse of the Day</button>
+    <button class="trivia-button" onclick="startBibleTrivia()">Bible Trivia</button>
+    <button class="prayer-button" onclick="submitPrayerRequest()">Prayer Request</button>
+    <!-- Newer Buttons -->
+    <button class="dictionary-button" onclick="openBibleDictionary()">Bible Dictionary</button>
+    <button class="maps-button" onclick="openMapsAndCharts()">Maps & Charts</button>
+    <button class="devotion-button" onclick="openDailyDevotion()">Daily Devotion</button>
+    <button class="concordance-button" onclick="openConcordance()">Concordance</button>
+    <button class="quiz-button" onclick="startBibleQuiz()">Bible Quiz</button>
+    <button class="hymns-button" onclick="openHymnsAndSongs()">Hymns & Songs</button>
+    <button class="articles-button" onclick="openChristianArticles()">Christian Articles</button>
+    <!-- Final Buttons -->
+    <button class="scripture-art-button" onclick="openScriptureArt()">Scripture Art</button>
+    <button class="timeline-button" onclick="openBibleTimeline()">Bible Timeline</button>
+    <!-- Extra Buttons -->
+    <button class="commentary-button" onclick="openBibleCommentary()">Bible Commentary</button>
+    <button class="study-guide-button" onclick="openStudyGuide()">Study Guide</button>
+    <button class="quotes-button" onclick="openChristianQuotes()">Christian Quotes</button>
+    <button class="events-button" onclick="openBiblicalEvents()">Biblical Events</button>
+    <button class="history-button" onclick="openChurchHistory()">Church History</button>
+    <button class="events-button" onclick="openBiblePromises1000()">Bible Promises1000</button>
+    <button class="history-button" onclick="openSermons()">Sermons</button>
+    <button class="btn" onclick="openJehovaBible()">Jehova Bible</button>
+    
+    <button class="sparkle-btn">
+        Hover me
+        <span class="stars"></span>
+    </button>
+    
+  <script>
+  
+     function toggleMusic() {
+  var music = document.getElementById("backgroundMusic");
+  var button = document.getElementById("musicButton");
+
+  if (music.paused) {
+    music.play();
+    button.innerText = "Stop Hindi 🎼";
+    button.classList.add("active"); // Add class when playing
+  } else {
+    music.pause();
+    music.currentTime = 0;
+    button.innerText = "Play Hindi 🎼";
+    button.classList.remove("active"); // Remove class when stopped
+  }
+}
+
+// Toggle Tamil Music
+function toggleTamilMusic() {
+  var music = document.getElementById("tamilMusic");
+  var button = document.getElementById("tamilButton");
+
+  if (music.paused) {
+    music.play();
+    button.innerText = "Stop Tamil 🎶";
+    button.classList.add("active"); // Add class when playing
+  } else {
+    music.pause();
+    music.currentTime = 0;
+    button.innerText = "Play Tamil 🎶";
+    button.classList.remove("active"); // Remove class when stopped
+  }
+}
+
+// Toggle English Music
+function toggleEnglishMusic() {
+  var music = document.getElementById("englishMusic");
+  var button = document.getElementById("englishButton");
+
+  // Stop other audios if playing
+  var hindiMusic = document.getElementById("backgroundMusic");
+  var tamilMusic = document.getElementById("tamilMusic");
+
+  hindiMusic.pause();
+  hindiMusic.currentTime = 0;
+  document.getElementById("musicButton").innerText = "Play Hindi 🎼";
+
+  tamilMusic.pause();
+  tamilMusic.currentTime = 0;
+  document.getElementById("tamilButton").innerText = "Play Tamil 🎶";
+
+  if (music.paused) {
+    music.play();
+    button.innerText = "Stop English 🎵";
+    button.classList.add("active");
+  } else {
+    music.pause();
+    music.currentTime = 0;
+    button.innerText = "Play English 🎵";
+    button.classList.remove("active");
+  }
+}
+    function stopMusic() {
+  var music = document.getElementById("backgroundMusic");
+  music.pause();
+  music.currentTime = 0;  // Reset to the beginning
+}
+
+    function openTamilBible() { window.location.href = "tamil_bible.html"; }
+    function openEnglishBible() { window.location.href = "eng.html"; }
+    function openPdfBible() { window.location.href = "pdf_bible.pdf"; }
+    function openHtmlBible() { window.location.href = "html_bible.html"; }
+    function openLink1() {window.location.href = 'Image_editor & Music.html';}
+    function openLink2() { window.open("https://example.com/link2", "_blank"); }
+    function triggerConfetti() {
+  var duration = 7 * 1000;
+  var end = Date.now() + duration;
+
+  (function frame() {
+    // Normal Confetti on the left
+    confetti({
+      particleCount: 5,
+      angle: 60,
+      spread: 90,
+      startVelocity: 50,
+      origin: { x: 0 },
+      shapes: ['circle', 'square', 'star', 'heart'],
+      scalar: 1.2,
+    });
+    
+    // Center Spray (Flower-Like)
+confetti({
+  particleCount: 10,
+  angle: 90,
+  spread: 50,
+  startVelocity: 40,
+  origin: { x: 0.5, y: 0.5 },
+  shapes: ['circle'],
+  scalar: 1.5, // Larger size for a blooming effect
+  colors: ['#ff69b4', '#ff1493', '#ff6347', '#ff4500', '#ff7f50'], // Flower-like colors (pink, red, coral)
+});
+
+    // Starry Confetti only on the right
+    confetti({
+      particleCount: 5,
+      angle: 120,
+      spread: 90,
+      startVelocity: 50,
+      origin: { x: 1 },
+      shapes: ['star'],  // Star-shaped confetti
+      scalar: 1.2,       // Slightly larger stars
+      colors: ['#ffdd00', '#ffffff']  // Gold and white stars
+    });
+    
+    // Bubble 1 - Bottom Left
+    confetti({
+      particleCount: 3,
+      angle: 80,
+      spread: 45,
+      startVelocity: 20,
+      origin: { x: 0.1, y: 1 },
+      shapes: ['circle'],
+      scalar: 1.8,
+      colors: ['#add8e6', '#87ceeb', '#4682b4'] 
+    });
+
+    // Bubble 2 - Bottom Right
+confetti({
+  particleCount: 3,
+  angle: 80,             // Spray upward-right
+  spread: 45,
+  startVelocity: 20,
+  origin: { x: 0.9, y: 1 },
+  shapes: ['circle'],
+  scalar: 1.8,
+  colors: ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#8b00ff']
+});
+    
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+  }());
+}
+
+    function openBibleProphecy() {
+    window.open("prophecy.html", "_blank");
+}
+    function showVerseOfTheDay() { alert("Verse of the Day: John 3:16"); }
+    function startBibleTrivia() { alert("Starting Bible Trivia!"); }
+    function submitPrayerRequest() { alert("Submit your prayer request."); }
+    function openBibleDictionary() { alert("Opening Bible Dictionary"); }
+    function openMapsAndCharts() { alert("Opening Maps & Charts"); }
+    function openDailyDevotion() { alert("Opening Daily Devotion"); }
+    function openConcordance() { alert("Opening Concordance"); }
+    function startBibleQuiz() { alert("Starting Bible Quiz!"); }
+    function openConcordance() { alert("Opening Concordance"); }
+    function openHymnsAndSongs() { alert("Opening Hymns & Songs"); }
+    function openChristianArticles() { alert("Opening Christian Articles"); }
+    function openScriptureArt() { alert("Opening Scripture Art"); }
+    function openBibleCommentary() { alert("Opening Bible Commentary"); }
+    function openStudyGuide() { alert("Opening Study Guide"); }
+    function openChristianQuotes() { alert("Opening Christian Quotes"); }
+    function openBiblicalEvents() { alert("Opening Biblical Events"); }
+    function openChurchHistory() { alert("Opening Church History"); }
+    function openSermons() { alert("Opening Biblical Events"); }
+    function openBiblePromises1000() { alert("Opening Bible Promises1000"); }
+    function openJehovaBible() { alert("Opening Jehova Bible"); }
+    
+    function openBibleTimeline() { window.location.href = "timeline.html"; }
+    
+// Audio Bible - Redirects to an audio page or plays audio
+function openAudioBible() {
+  // Replace with the actual audio file or page
+  window.location.href = "audio_bible.html";
+}
+
+// .epub Bible - Opens a .epub file (Ensure the file is in the same directory)
+function openEpubBible() {
+  window.location.href = "bible.epub";
+}
+
+// Videos - Redirects to your YouTube channel or video collection
+function openVideos() {
+  window.open("https://www.youtube.com/@knowyourbible", "_blank");
+}
+
+// Link 3 - Redirects to an external link (Change the URL as needed)
+function openLink3() {
+  window.open("https://example.com/link3", "_blank");
+}
+
+// Black Button - Custom action (You can change this to navigate somewhere)
+function blackButtonAction() {
+  alert("This is a custom action for the Black Button.");
+}
+
+// Bible Lexicon - Redirects to a Bible Lexicon resource
+function openBibleLexicon() {
+  window.open("https://www.blueletterbible.org/lexicon.cfm", "_blank");
+}
+  </script>
+   <script
+  src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <audio id="backgroundMusic" loop>
+  <source src="Music-hindi/Yeh Tera Husn.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+  <audio id="tamilMusic" loop>
+  <source src="Music-tamil/Yeasu_Rajanae.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+  <audio id="englishMusic" loop>
+  <source src="Music-english/Jesus Messiah.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+  
+    <!-- Volume Control Slider -->
+    <div>
+        <label for="volumeControl">Volume Control: </label>
+        <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1">
+    </div> 
+
+    <script>
+        window.onload = function() {
+            // Get references to all audio elements and the volume control
+            const audioElements = document.querySelectorAll('audio');
+            const volumeControl = document.getElementById('volumeControl');
+
+            // Function to update volume of all audio players
+            volumeControl.addEventListener('input', () => {
+                const volume = volumeControl.value;
+                audioElements.forEach(audio => {
+                    audio.volume = volume;
+                });
+            });
+        };
+  </script>
+ </body>
+</html>
